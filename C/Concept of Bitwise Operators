@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main()
+{
+    unsigned char a = 5, b = 9, g = 0;
+
+    g = a & b; // Bitwise AND
+    printf("Bitwise AND of %d and %d is: %d\n", a, b, g);
+
+    g = a | b; // Bitwise OR
+    printf("Bitwise OR of %d and %d is: %d\n", a, b, g);
+
+    g = a ^ b; // Bitwise XOR
+    printf("Bitwise XOR of %d and %d is: %d\n", a, b, g);
+
+    g = ~a; // Bitwise NOT
+    printf("Bitwise NOT of %d is: %d\n", a, g);
+
+    g = a << 1; // Left Shift
+    printf("Left Shift of %d by 1 is: %d\n", a, g);
+
+    g = a >> 1; // Right Shift
+    printf("Right Shift of %d by 1 is: %d\n", a, g);
+
+    return 0;
+}

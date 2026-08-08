@@ -1,0 +1,20 @@
+#include<stdio.h>
+int main()
+{
+    int x, meter, feet, cm;
+    float inch;
+
+    printf("Enter the value in km: ");
+    scanf("%d", &x);
+
+    meter = x * 1000;
+    feet = x * 3280;
+    cm = x * 100000;
+    inch = x * 39370;
+
+    printf("%d km is equal to %d in meters.\n", x, meter);
+    printf("%d km is equal to %d in feet.\n", x, feet);
+    printf("%d km is equal to %d in centimeters.\n", x, cm);
+    printf("%d km is equal to %.2f in inches.\n", x, inch);
+    return 0;
+}
