@@ -1,0 +1,46 @@
+#include<stdio.h>
+int main()
+{
+    float val1, val2, ans;
+    char choice;
+    
+    printf("Enter your choice of operation (+, -, *, /) : ");
+    scanf(" %c", &choice);
+
+    printf("Enter two values: ");
+    scanf("%f %f", &val1, &val2);
+
+    switch(choice)
+    {
+        case '+':
+            ans = val1 + val2;
+            printf("The sum is: %.2f\n", ans);
+            break;
+
+        case '-':
+            ans = val1 - val2;
+            printf("The difference is: %.2f\n", ans);
+            break;
+
+        case '*':
+            ans = val1 * val2;
+            printf("The product is: %.2f\n", ans);
+            break;
+
+        case '/':
+            if(val2 != 0)
+            {
+                ans = val1 / val2;
+                printf("The quotient is: %.2f\n", ans);
+            }
+            else
+            {
+                printf("Error! Division by zero.\n");
+            }
+            break;
+
+        default:
+            printf("Invalid operation selected.\n");
+    }
+    return 0;
+}

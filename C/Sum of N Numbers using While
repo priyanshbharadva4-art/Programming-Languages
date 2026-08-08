@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main()
+{
+    double n, i = 0, sum = 0;
+    printf("Enter the value of N: ");
+    scanf("%lf", &n);
+
+    while(i <= n)
+    {
+        sum += i;
+        i++;
+    }
+    printf("Sum of first %.0f numbers is: %.0f", n, sum);
+    return 0;
+}
