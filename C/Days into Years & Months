@@ -1,0 +1,13 @@
+#include<stdio.h>
+int main()
+{
+    int days, years, months;
+    printf("Enter the number of days: ");
+    scanf("%d", &days);
+
+    years = days / 365;
+    months = (days % 365) / 30; 
+
+    printf("%d days is approximately %d years and %d months.\n", days, years, months);
+    return 0;
+}
