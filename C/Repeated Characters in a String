@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char str[100];
+    char tarch;
+    int i, count = 0;
+
+    printf("Enter a string:");
+    fgets(str, sizeof(str), stdin);
+
+    printf("\n Enter the character to count:");
+    scanf("%c", &tarch);
+
+    for(i=0; str[i] != '\0'; i++)
+    {
+        if(str[i] == tarch)
+        {
+            count++;
+        }
+    }
+
+    printf("\n The character '%c' appears %d times in the string.", tarch, count);
+
+    return 0;
+}

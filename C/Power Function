@@ -1,0 +1,18 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    double base, exponent, result;
+    
+    printf("Enter the value of base:");
+    scanf("%lf", &base);
+    
+    printf("Enter the value of exponent:");
+    scanf("%lf", &exponent);
+    
+    result = pow(base, exponent);
+    
+    printf("%lf raised to the power %lf is %lf", base, exponent, result);
+    
+    return 0;
+}
