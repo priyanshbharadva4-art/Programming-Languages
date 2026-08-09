@@ -1,0 +1,215 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+class Library {
+private:
+    int bookID[100];
+    string title[100];
+    string author[100];
+    bool issued[100];
+    long long enrollment[100];
+    int issueDay[100];
+    int count = 0;
+public:
+    bool idExists(int id) {
+        for(int i=0;i<count;i++) {
+            if(bookID[i]==id)
+                return true;
+        }
+        return false;
+    }
+    //ADD BOOOOK  FUNCTION..............
+    void addBook() {
+        int id;
+        cout<<"     >> Enter Book ID: ";
+        cin>>id;
+
+        if(idExists(id)) {//CHECK IF IT IS EXISTT....
+            cout<<"  [X Book ID already exists !!]\n";
+            return;
+        }
+
+        bookID[count]=id;
+
+        cin.ignore();
+
+        cout<<"     >> Enter Book Title: ";
+        getline(cin,title[count]);
+
+        cout<<"     >> Enter Author Name: ";
+        getline(cin,author[count]);
+
+        issued[count]=false;
+        enrollment[count]=0;
+        issueDay[count]=0;
+
+        count++;
+
+        cout<<"   [++ Book added successfully.]\n";
+    }
+// DISPLAYYYY BOOKKKSSS...... IN TABLE
+    void displayBooks() {
+
+        if(count==0) {
+            cout<<"  [X No books in library !!]\n";
+            return;
+        }
+
+        cout<<"\n----------------------------[[ Library Books ]]----------------------------\n";
+        cout << "===========================================================================\n";
+       cout << left
+         << setw(10) << "Book ID"
+         << setw(20) << "Title"
+         << setw(15) << "Author"
+         << setw(15) << "Status"
+         << setw(10) << "Enroll No"
+         << endl;
+
+        cout << "===========================================================================\n";
+
+        for(int i=0;i<count;i++) {
+                cout << setw(10) <<bookID[i]
+         << setw(20) <<title[i]
+         << setw(15) <<author[i];
+
+            if(issued[i]) {// STATUSE CHECK..............
+               cout<< setw(15) << "Issued"
+               << setw(10) <<enrollment[i]<< endl;
+            }
+            else
+                cout<< setw(15) << "Available"
+                 << setw(10) <<" - - - - "<< endl;
+
+        cout << "---------------------------------------------------------------------------\n";
+        }
+    }
+// ISSUUE BOOOK..................
+    void issueBook() {
+
+        int id,day;
+
+        cout<<"     >> Enter Book ID: ";
+        cin>>id;
+
+        for(int i=0;i<count;i++) {
+
+            if(bookID[i]==id) {
+
+                if(issued[i]) {
+                    cout<<"  [X Book already issued !!]\n";
+                    return;
+                }
+
+                cout<<"     >> Enter Student Enrollment Number: ";
+                cin>>enrollment[i];
+
+                cout<<"     >> Enter Issue Day: ";
+                cin>>day;
+
+                issued[i]=true;
+                issueDay[i]=day;
+
+                cout<<"    [$ Book issued successfully.]\n";
+                return;
+            }
+        }
+
+        cout<<"  [X Book not found !!]\n";
+    }
+// RETURN BOOKKK.................
+    void returnBook() {
+
+        int id,returnDay;
+
+        cout<<"     >> Enter Book ID: ";
+        cin>>id;
+
+        for(int i=0;i<count;i++) {
+
+            if(bookID[i]==id) {
+
+                if(!issued[i]) {
+                    cout<<"  [X Book was not issued !!]\n";
+                    return;
+                }
+
+                cout<<"     >> Enter Return Day: ";
+                cin>>returnDay;
+
+                issued[i]=false;
+                enrollment[i]=0;
+
+                cout<<"    [Book returned successfully.]\n";
+                return;
+            }
+        }
+        cout<<"  [X Book not found !!]\n";
+    }
+// DLELETE BOOOK...................
+    void deleteBook() {
+
+        int id;
+
+        cout<<"     >> Enter Book ID to delete: ";
+        cin>>id;
+
+        for(int i=0;i<count;i++) {
+
+            if(bookID[i]==id) {
+                    if(!issued[i]) {
+                for(int j=i;j<count-1;j++) {
+
+                    bookID[j]=bookID[j+1];
+                    title[j]=title[j+1];
+                    author[j]=author[j+1];
+                    issued[j]=issued[j+1];
+                    enrollment[j]=enrollment[j+1];
+                    issueDay[j]=issueDay[j+1];
+                }
+
+                count--;
+
+                cout<<"   [-- Book deleted successfully.]\n";
+                return;
+            }else{
+             cout<<"   [** Book was Issued, so wait until someone return it...]\n";
+             return;
+        }
+        }
+        cout<<"  [X Book not found !!]\n";
+    }
+    }
+};
+int main() {
+
+    Library lib;
+    int choice;
+
+    do {
+        cout<<"\n======================{ LIBRARY MANAGEMENT SYSTEM }========================\n";
+        cout<<"  || 1. Add Book\n";
+        cout<<"  || 2. Display Books\n";
+        cout<<"  || 3. Issue Book\n";
+        cout<<"  || 4. Return Book\n";
+        cout<<"  || 5. Delete Book\n";
+        cout<<"  || 6. Exit\n";
+        cout << "===========================================================================\n";
+        cout<<"\n   >> Enter choice: ";
+        cin>>choice;
+
+        switch(choice) {
+
+            case 1: lib.addBook(); break;
+            case 2: lib.displayBooks(); break;
+            case 3: lib.issueBook(); break;
+            case 4: lib.returnBook(); break;
+            case 5: lib.deleteBook(); break;
+            case 6: cout<<"    [X Program closed...]\n"; break;
+            default: cout<<"   [X Invalid choice.]\n";
+        }
+
+    } while(choice!=6);
+ 
+    return 0;
+}
