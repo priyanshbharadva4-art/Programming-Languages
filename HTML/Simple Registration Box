@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-box {
+            border: 2px solid black;
+            padding: 20px;
+            width: 350px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        .inline {
+            width: auto;
+            display: inline;
+        }
+
+        .buttons {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-box">
+
+<h2>Registration Form</h2>
+
+<form>
+    <label>Username:</label>
+    <input type="text" placeholder="Enter username">
+
+    <label>Password:</label>
+    <input type="password" placeholder="Enter password">
+
+    <label>Gender:</label>
+    <input type="radio" name="gender" class="inline"> Male
+    <input type="radio" name="gender" class="inline"> Female
+
+    <label>Hobbies:</label>
+    <input type="text" placeholder="Enter your hobbies">
+
+    <label>Select Your Qualification:</label>
+    <select>
+        <option>--Select--</option>
+        <option>BCA</option>
+        <option>MCA</option>
+        <option>B.Tech</option>
+        <option>M.Tech</option>
+        <option>B.Sc</option>
+        <option>M.Sc</option>
+        <option>12th</option>
+        <option>10th</option>
+    </select>
+
+    <div class="buttons">
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </div>
+</form>
+</div>
+</body>
+</html>

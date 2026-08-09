@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Web PAge</title>
+    
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        hr {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to My Website</h1>
+    <p style="text-align:center;">A simple HTML demonstration page</p>
+
+    <hr>
+
+    <div class="section">
+        <h2>About HTML</h2>
+        <p>
+            HTML stands for HyperText Markup Language. It is used to create web pages
+            and structure content on the internet. HTML uses tags to define elements
+            such as headings, paragraphs, lists, and links.
+        </p>
+    </div>
+
+    <hr>
+
+    <div class="section">
+        <h2>My Hobbies</h2>
+        <ul>
+            <li>Reading Books</li>
+            <li>Playing Games</li>
+            <li>Learning Programming</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div class="section">
+        <h2>Daily Routine</h2>
+        <ol>
+            <li>Wake up</li>
+            <li>Attend Classes</li>
+            <li>Practice Coding</li>
+            <li>Go to Sleep</li>
+        </ol>
+    </div>
+
+    <hr>
+
+    <div class="section">
+        <h2>Visit My Favorite Website</h2>
+        <p>
+            <a href="https://www.youtube.com" target="_blank">
+                Click here to visit Youtube.
+            </a>
+        </p>
+    </div>
+
+    <hr>
+
+    <footer style="text-align:center;">
+        <p>© 2026 My Simple Website</p>
+    </footer>
+</body>
+</html>
