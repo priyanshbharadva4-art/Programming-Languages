@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<time.h>
+int main()
+{
+    int i, n, guess, corr, n1, n2, score = 0;
+
+    printf("Enter the questions:");
+    scanf("%d", &n);
+
+    srand(time(NULL));
+
+    for(i=0; i<n; i++)
+    {
+        n1 = (rand()%20 + 1);
+        n2 = (rand()%10 + 1);
+        corr = n1 * n2;
+        
+        printf("\n Q-%d: What is %d * %d?\n Ans: ", i+1, n1, n2);
+        scanf("%d", &guess);
+
+        if(guess == corr)
+        {
+            printf("Correct answer");
+            score++;
+        }
+
+        else
+        {
+            printf("Wrong answer");
+        }
+    }
+
+    printf("\n Game Over");
+    printf("\n Your score is %d out of %d", score, n);
+
+    return 0;
+}
