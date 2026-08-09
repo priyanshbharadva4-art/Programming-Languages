@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<time.h>
+int main()
+{
+    int n, guess, att = 0;
+
+    srand(time(NULL));              //Seed the random number
+    n = rand()%100 + 1;             //Generate number between 1 to 100
+
+    do
+    {
+        printf("Enter your guess:");
+        scanf("%d", &guess);
+        att++;
+
+        if(guess<n)
+        {
+            printf("Too low! Try a higher number.");
+        }
+
+        else if(guess>n)
+        {
+            printf("Too high! Try a lower number.");
+        }
+
+        else
+        {
+            printf("Congratulations! You guessed the number %d in %d attempts", n, att);
+        }
+    }
+    while(guess  != n);
+
+    return 0;
+}
