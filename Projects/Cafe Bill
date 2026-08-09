@@ -1,0 +1,78 @@
+#include <stdio.h>
+
+int main(void) {
+    int choice, qty;
+    int total = 0;
+    char more = 'n';
+
+    int priceBurger = 80;
+    int pricePizza = 150;
+    int priceFries = 50;
+
+    int priceCoke = 40;
+    int priceColdCoffee = 70;
+    int priceLemonJuice = 30;
+
+    printf("=============================================\n");
+    printf("               WELCOME TO FOOD PLAZA\n");
+    printf("=============================================\n");
+    printf("                    MENU\n");
+    printf("---------------------------------------------\n");
+    printf("                 FOOD ITEMS\n");
+    printf(" 1. Burger        - 80\n");
+    printf(" 2. Pizza         - 150\n");
+    printf(" 3. Fries         - 50\n");
+    printf("---------------------------------------------\n");
+    printf("                   DRINKS\n");
+    printf(" 4. Coke          - 40\n");
+    printf(" 5. Cold Coffee   - 70\n");
+    printf(" 6. Lemon Juice   - 30\n");
+    printf("=============================================\n\n");
+
+    do {
+        printf("Enter your choice (1-6): ");
+        if (scanf("%d", &choice) != 1) {
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            printf("\nInvalid input.\n\n");
+            continue;
+        }
+
+        if (choice < 1 || choice > 6) {
+            printf("\nInvalid choice.\n\n");
+            continue;
+        }
+
+        printf("Enter quantity: ");
+        if (scanf("%d", &qty) != 1 || qty < 1) {
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+            printf("\nInvalid quantity.\n\n");
+            continue;
+        }
+
+        switch (choice) {
+            case 1: total += priceBurger * qty; break;
+            case 2: total += pricePizza * qty; break;
+            case 3: total += priceFries * qty; break;
+            case 4: total += priceCoke * qty; break;
+            case 5: total += priceColdCoffee * qty; break;
+            case 6: total += priceLemonJuice * qty; break;
+        }
+
+        printf("Do you want to order more? (y/n): ");
+        scanf(" %c", &more);
+        printf("\n");
+
+    } while (more == 'y' || more == 'Y');
+
+    printf("=============================================\n");
+    printf("                   FINAL BILL\n");
+    printf("=============================================\n");
+    printf(" Total Amount: %d\n", total);
+    printf("---------------------------------------------\n");
+    printf("           Thank You! Visit Again!\n");
+    printf("=============================================\n");
+
+    return 0;
+}
