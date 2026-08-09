@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class MyString {
+private:
+    string* str_ptr; 
+
+public:
+    MyString() {
+        str_ptr = new string; 
+        cout << "Enter a string: ";
+        getline(cin, *str_ptr); 
+    }
+
+    void Display() {
+        if (str_ptr != nullptr) {
+            cout << "Stored String: " << *str_ptr << endl;
+        }
+    }
+
+    ~MyString() {
+        delete str_ptr;
+        str_ptr = nullptr; 
+        cout << "Memory has been successfully freed." << endl;
+    }
+};
+
+int main() {
+    MyString myObj;
+    myObj.Display(); 
+    
+    return 0;
+}

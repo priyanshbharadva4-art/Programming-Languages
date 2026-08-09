@@ -1,0 +1,25 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double pi = 3.14159265358979;
+    double price = 125.5;
+
+    cout << "--- Using Manipulators ---" << endl;
+
+    cout << setfill('.');
+    cout << setw(20) << left << "Constant PI" << ":" << setw(10) << right << pi << endl;
+    cout << setw(20) << left << "Product Price" << ":" << setw(10) << right << price << endl;
+    cout << "\n--- Fixed Formatting ---" << endl;
+    
+    cout << setiosflags(ios::fixed | ios::showpos);
+    
+    cout << "PI (4 decimals):   " << setprecision(4) << pi << endl;
+    cout << "Price (2 decimals): " << setprecision(2) << price << endl;
+
+    cout << resetiosflags(ios::showpos);
+    cout << "Price (No sign):   " << price << endl;
+
+    return 0;
+}

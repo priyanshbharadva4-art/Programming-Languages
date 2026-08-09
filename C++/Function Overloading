@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath> 
+using namespace std;
+
+double power(double m, int n) {
+    cout << "(Using double, int version)" << endl;
+    return pow(m, n);
+}
+
+int power(int m, int n) {
+    cout << "(Using int, int version)" << endl;
+    return (int)pow(m, n);
+}
+
+int main() {
+    double d_base = 2.5;
+    int exp1 = 3;
+    cout << d_base << "^" << exp1 << " = " << power(d_base, exp1) << "\n\n";
+
+    int i_base = 6;
+    int exp2 = 2;
+    cout << i_base << "^" << exp2 << " = " << power(i_base, exp2) << endl;
+
+    return 0;
+}

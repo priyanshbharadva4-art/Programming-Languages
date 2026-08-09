@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cstring> 
+using namespace std;
+
+int main() {
+    char ch;
+    char str[100];
+
+    cout << "Enter a single character: ";
+    cin.get(ch); 
+    cout << "You entered (using put): ";
+    cout.put(ch); 
+    cout << endl;
+
+    cin.ignore();
+
+    cout << "\nEnter a full sentence: ";
+    cin.getline(str, 100);
+    cout << "Processed string: " << str << endl;
+
+    cout << "Displaying first 5 characters using write(): ";
+    cout.write(str, 5); 
+    cout << endl;
+
+    return 0;
+}

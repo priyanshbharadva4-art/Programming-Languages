@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+
+class Arithmetic
+{
+    public:
+    float add(float a, float b) {
+        return a+b;
+    }
+
+    float sub(float a, float b) {
+        return a-b;
+    }
+
+    float mul(float a, float b) {
+        return a*b;
+    }
+
+    float div(float a, float b) {
+        if(b!=0)
+        return (float) a/b;
+        else
+        return 0;
+    }
+};
+
+int main()
+{
+    Arithmetic obj;
+    float x, y;
+    cout<<"Enter two values:"<<endl;
+    cin>>x>>y;
+
+
+    cout<<"Addition:"<<obj.add(x,y)<<endl;
+    cout<<"Subtraction:"<<obj.sub(x,y)<<endl;
+    cout<<"Multiplication:"<<obj.mul(x,y)<<endl;
+    cout<<"Division:"<<obj.div(x,y)<<endl;
+
+    return 0;
+}

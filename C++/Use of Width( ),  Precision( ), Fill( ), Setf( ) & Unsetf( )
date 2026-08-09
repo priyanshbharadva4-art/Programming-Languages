@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double num1 = 12.34567, num2 = 100.0;
+
+    cout << "--- Width and Fill ---" << endl;
+    cout.fill('*');         
+    cout.width(15);         
+    cout << num1 << endl;
+
+    cout << "\n--- Precision ---" << endl;
+    cout.precision(4);       
+    cout << "Precision (4): " << num1 << endl;
+
+    cout << "\n--- Setf and Unsetf ---" << endl;
+    
+    cout.setf(ios::showpos); 
+    cout.setf(ios::fixed, ios::floatfield); 
+    
+    cout.precision(2);      
+    cout << "Fixed + Showpos: " << num1 << endl;
+    cout << "Fixed + Showpos: " << num2 << endl;
+
+    cout.unsetf(ios::showpos);
+    cout << "After Unsetf (showpos): " << num1 << endl;
+
+    return 0;
+}

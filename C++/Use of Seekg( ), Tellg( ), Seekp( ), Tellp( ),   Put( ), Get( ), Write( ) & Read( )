@@ -1,0 +1,37 @@
+#include <iostream>
+#include <fstream>
+#include <cstring>
+
+using namespace std;
+
+int main() {
+    char data[] = "C++ Programming";
+    char ch;
+    char buffer[20];
+
+    fstream file("test.dat", ios::in | ios::out | ios::binary | ios::trunc);
+
+    file.write(data, strlen(data));
+    
+    file.put('!'); 
+
+    long writePos = file.tellp();
+    cout << "Current Put Pointer position: " << writePos << endl;
+
+    file.seekp(3, ios::beg);
+    file.put('#'); 
+    file.seekg(0, ios::beg); 
+    
+    cout << "Current Get Pointer position: " << file.tellg() << endl;
+
+    file.get(ch);
+    cout << "First character (get): " << ch << endl;
+
+    file.seekg(4, ios::beg); 
+    file.read(buffer, 11);  
+    buffer[11] = '\0';       
+    cout << "Block read from pos 4 (read): " << buffer << endl;
+
+    file.close();
+    return 0;
+}

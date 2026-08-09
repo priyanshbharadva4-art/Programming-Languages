@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    int pub = 10;
+protected:
+    int prot = 20;
+private:
+    int priv = 30; 
+};
+
+class Public : public Base {
+public:
+    void show() {
+        cout << "Public: " << pub << ", Protected: " << prot << endl;
+    }
+};
+
+class Protected : protected Base {
+public:
+    void show() {
+        cout << "Public becomes Protected: " << pub << ", Protected stays Protected: " << prot << endl;
+    }
+};
+
+class Private : private Base {
+public:
+    void show() {
+        cout << "Public becomes Private: " << pub << ", Protected becomes Private: " << prot << endl;
+    }
+};
+
+int main() {
+    Public obj1;
+    Protected obj2;
+    Private obj3;
+
+    cout << "--- Public Inheritance ---" << endl;
+    cout << "Accessible from main: " << obj1.pub << endl; 
+
+    cout << "\n--- Protected Inheritance ---" << endl;
+    obj2.show(); 
+
+    cout << "\n--- Private Inheritance ---" << endl;
+    obj3.show(); 
+
+    return 0;
+}

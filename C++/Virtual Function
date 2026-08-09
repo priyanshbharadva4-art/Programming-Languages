@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Media {
+protected:
+    string title;
+    float price;
+public:
+    Media(string t, float p) : title(t), price(p) {}
+
+    virtual void display() {
+        cout << "\n[Generic Media] Title: " << title << ", Price: " << price << endl;
+    }
+};
+
+class Book : public Media {
+    int pages;
+public:
+    Book(string t, float p, int pg) : Media(t, p), pages(pg) {}
+
+    void display() override {
+        cout << "\n--- Book Details ---" << endl;
+        cout << "Title: " << title << "\nPrice: " << price << "\nPages: " << pages << " pages" << endl;
+    }
+};
+
+class Tape : public Media {
+    float playTime;
+public:
+    Tape(string t, float p, float time) : Media(t, p), playTime(time) {}
+
+    void display() override {
+        cout << "\n--- Tape Details ---" << endl;
+        cout << "Title: " << title << "\nPrice: " << price << "\nPlay Time: " << playTime << " mins" << endl;
+    }
+};
+
+int main() {
+    Book myBook("C++ Programming", 450.50, 600);
+    Tape myTape("Advanced CPP Lectures", 150.00, 90.5);
+
+    Media* ptr;
+    ptr = &myBook;
+    ptr->display(); 
+
+    ptr = &myTape;
+    ptr->display();
+
+    return 0;
+}

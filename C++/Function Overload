@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+
+class complex {
+private:
+    float real, imag;
+public:
+    complex(float r = 0, float i = 0) : real(r), imag(i) {}
+
+    void display() const {
+        cout << real << " + " << imag << "i" << endl;
+    }
+
+    friend complex operator+(const complex& c1, const complex& c2);
+    friend complex operator-(const complex& c1, const complex& c2);
+};
+
+complex operator+(const complex& c1, const complex& c2) {
+    return complex(c1.real + c2.real, c1.imag + c2.imag);
+}
+
+complex operator-(const complex& c1, const complex& c2) {
+    return complex(c1.real - c2.real, c1.imag - c2.imag);
+}
+
+int main() {
+    complex comp1(4.5, 3.2), comp2(1.2, 2.1);
+    
+    complex sum = comp1 + comp2;  
+    complex diff = comp1 - comp2; 
+
+    cout << "\nComplex 1: "; comp1.display();
+    cout << "Complex 2: "; comp2.display();
+    cout << "Sum:       "; sum.display();
+    cout << "Difference: "; diff.display();
+
+    return 0;
+}

@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+class Dist {
+private:
+    int feet;
+    float inches;
+
+public:
+    void input() {
+        cout << "Enter feet: ";
+        cin >> feet;
+        cout << "Enter inches: ";
+        cin >> inches;
+    }
+
+    void outputDistance() {
+        cout << feet << "' " << inches << "\"" << endl;
+    }
+
+    Dist add(Dist d2) {
+        Dist temp;
+        temp.feet = feet + d2.feet;
+        temp.inches = inches + d2.inches;
+
+        if (temp.inches >= 12.0) {
+            temp.feet += (int)(temp.inches / 12);
+            temp.inches = (int)temp.inches % 12 + (temp.inches - (int)temp.inches);
+        }
+        return temp;
+    }
+};
+
+int main() {
+    Dist d1, d2, sum;
+
+    cout << "Enter first distance:" << endl;
+    d1.input();
+
+    cout << "\nEnter second distance:" << endl;
+    d2.input();
+
+    sum = d1.add(d2);
+
+    cout << "\nDistance 1: "; d1.outputDistance();
+    cout << "Distance 2: "; d2.outputDistance();
+    cout << "Total Distance: "; sum.outputDistance();
+
+    return 0;
+}

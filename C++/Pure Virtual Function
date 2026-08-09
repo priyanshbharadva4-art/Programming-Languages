@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Media {
+protected:
+    string title;
+public:
+    Media(string t) : title(t) {}
+    virtual void display() = 0; 
+};
+
+class Book : public Media {
+    int pages;
+public:
+    Book(string t, int p) : Media(t), pages(p) {}
+
+    void display() override {
+        cout << "Book: " << title << " | Pages: " << pages << endl;
+    }
+};
+
+class Tape : public Media {
+    float playTime;
+public:
+    Tape(string t, float time) : Media(t), playTime(time) {}
+
+    void display() override {
+        cout << "Tape: " << title << " | Playtime: " << playTime << " mins" << endl;
+    }
+};
+
+int main() {
+    Media* list[2];
+
+    list[0] = new Book("C++ Primer", 900);
+    list[1] = new Tape("Logic Lectures", 45.5);
+
+    for (int i = 0; i < 2; i++) {
+        list[i]->display(); 
+    }
+
+    delete list[0];
+    delete list[1];
+
+    return 0;
+}

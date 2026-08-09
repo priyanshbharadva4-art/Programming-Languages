@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+class Tracker {
+private:
+    static int objectCount; 
+    int id;
+
+public:
+    Tracker() {
+        objectCount++;
+        id = objectCount;
+        cout << "Object " << id << " created." << endl;
+    }
+
+    static void showCount() {
+        cout << "Total objects currently active: " << objectCount << endl;
+    }
+};
+
+int Tracker::objectCount = 0;
+
+int main() {
+    cout << "Initial check: ";
+    Tracker::showCount(); 
+
+    Tracker obj1, obj2, obj3;
+
+    cout << "\nAfter creation: ";
+    Tracker::showCount();
+
+    cout << "Via object: ";
+    obj1.showCount(); 
+
+    return 0;
+}

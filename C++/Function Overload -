@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+class Coordinate {
+private:
+    int x, y, z;
+
+public:
+    Coordinate(int x1 = 0, int y1 = 0, int z1 = 0) : x(x1), y(y1), z(z1) {}
+
+    void operator-() {
+        x = -x;
+        y = -y;
+        z = -z;
+    }
+
+    void display() {
+        cout << "X: " << x << ", Y: " << y << ", Z: " << z << endl;
+    }
+};
+
+int main() {
+    Coordinate point(10, -20, 30);
+
+    cout << "Before unary minus: ";
+    point.display();
+
+    -point; 
+
+    cout << "After unary minus:  ";
+    point.display();
+
+    return 0;
+}
